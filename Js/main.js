@@ -44,3 +44,24 @@ arrowUp.addEventListener("click", function () {
   const newImg = allSlides[currentImg];
   newImg.classList.add("visible");
 });
+
+// # CAMBIO IMMAGINE AL CLICK ARRROW-DOWN
+arrowDown.addEventListener("click", function () {
+  // eliminazione classe precedente
+  const currentSlide = document.querySelector(".slide.visible");
+  currentSlide.classList.remove("visible");
+
+  //   decremento delle img
+  const allSlides = document.getElementsByClassName("slide");
+
+  if (currentImg <= 0) {
+    currentImg = allSlides.length - 1;
+  } else {
+    currentImg--;
+  }
+
+  //   aggiunta classe alla prossima img
+
+  const newImg = allSlides[currentImg];
+  newImg.classList.add("visible");
+});
