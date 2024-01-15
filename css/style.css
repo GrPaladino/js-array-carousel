@@ -3,8 +3,8 @@
 }
 
 .wrapper-slides {
-  width: 800px;
-  height: 600px;
+  width: 1200px;
+  height: 700px;
   border-radius: 20px;
 
   overflow: hidden;
@@ -12,6 +12,7 @@
 }
 
 #slides-container {
+  width: 80%;
   height: 100%;
 }
 
@@ -26,6 +27,28 @@
   display: block;
 }
 
+.preview-box {
+  width: 20%;
+  height: 100%;
+}
+
+.card {
+  height: 20%;
+  border-radius: 0;
+  background-color: black;
+}
+
+.card .preview-img {
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+}
+
+.card .non-opacity {
+  opacity: 1;
+  border: 2px solid whitesmoke;
+}
+
 #arrow-up,
 #arrow-down {
   width: 35px;
@@ -37,6 +60,7 @@
   opacity: 0.8;
 
   position: absolute;
+  cursor: pointer;
 }
 
 #arrow-up {

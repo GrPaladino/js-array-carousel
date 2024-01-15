@@ -26,12 +26,17 @@ slidesContainerEl.innerHTML = slideHtml;
 
 // # CAMBIO IMMAGINE AL CLICK ARRROW-UP
 arrowUp.addEventListener("click", function () {
-  // eliminazione classe precedente
+  // eliminazione classe visibilitá display precedente
   const currentSlide = document.querySelector(".slide.visible");
   currentSlide.classList.remove("visible");
 
+  //   eliminazione classe visibilitá preview precedente
+  const currentPreview = document.querySelector(".preview-img.non-opacity");
+  currentPreview.classList.remove("non-opacity");
+
   //   incremento delle img
   const allSlides = document.getElementsByClassName("slide");
+  const allPreview = document.getElementsByClassName("preview-img");
 
   if (currentImg >= allSlides.length - 1) {
     currentImg = 0;
@@ -40,19 +45,26 @@ arrowUp.addEventListener("click", function () {
   }
 
   //   aggiunta classe alla prossima img
-
   const newImg = allSlides[currentImg];
   newImg.classList.add("visible");
+
+  const newPreview = allPreview[currentImg];
+  newPreview.classList.add("non-opacity");
 });
 
 // # CAMBIO IMMAGINE AL CLICK ARRROW-DOWN
 arrowDown.addEventListener("click", function () {
-  // eliminazione classe precedente
+  // eliminazione classe visibilitá display precedente
   const currentSlide = document.querySelector(".slide.visible");
   currentSlide.classList.remove("visible");
 
+  //   eliminazione classe visibilitá preview
+  const currentPreview = document.querySelector(".preview-img.non-opacity");
+  currentPreview.classList.remove("non-opacity");
+
   //   decremento delle img
   const allSlides = document.getElementsByClassName("slide");
+  const allPreview = document.getElementsByClassName("preview-img");
 
   if (currentImg <= 0) {
     currentImg = allSlides.length - 1;
@@ -61,7 +73,9 @@ arrowDown.addEventListener("click", function () {
   }
 
   //   aggiunta classe alla prossima img
-
   const newImg = allSlides[currentImg];
   newImg.classList.add("visible");
+
+  const newPreview = allPreview[currentImg];
+  newPreview.classList.add("non-opacity");
 });
