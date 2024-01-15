@@ -13,7 +13,6 @@
 
 #slides-container {
   width: 80%;
-  height: 100%;
 }
 
 .slide {
@@ -29,7 +28,6 @@
 
 .preview-box {
   width: 20%;
-  height: 100%;
 }
 
 .card {
