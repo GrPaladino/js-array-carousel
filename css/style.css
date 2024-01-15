@@ -5,12 +5,13 @@
 .wrapper-slides {
   width: 800px;
   height: 600px;
+  border-radius: 20px;
 
   overflow: hidden;
   position: relative;
 }
 
-.slides-img {
+#slides-container {
   height: 100%;
 }
 
@@ -24,6 +25,7 @@
 .visible {
   display: block;
 }
+
 .arrow-up,
 .arrow-down {
   width: 35px;
