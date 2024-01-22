@@ -12,7 +12,7 @@
 // - Creare una funzione goToSlide(n)  in grado di gestire il cambio di slide. Utilizzarla sul click delle frecce e nell'interval.
 
 // - Bonus 2:
-// - Lo scorrimento automatico delle immagini si blocca quando l'utente mette il mouse sopra il carosello e riparte quando il mouse esce fuori. (
+// - Lo scorrimento automatico delle immagini si blocca quando l'utente mette il mouse sopra il carosello e riparte quando il mouse esce fuori.
 
 // # ELEMENTO HTML
 const slidesContainerEl = document.getElementById("slides-container");
@@ -36,20 +36,33 @@ for (let i = 0; i < slides.length; i++) {
 }
 slidesContainerEl.innerHTML = slideHtml;
 
-// # CAMBIO IMMAGINE AL CLICK ARRROW-UP
+// # CAMBIO IMMAGINE AL CLICK ARRROW-DOWN
 arrowDown.addEventListener("click", function () {
   const nextI = nextImage();
 });
 
-// # CAMBIO IMMAGINE AL CLICK ARRROW-DOWN
+// # CAMBIO IMMAGINE AL CLICK ARRROW-UP
 arrowUp.addEventListener("click", function () {
   const prevI = prevImage();
 });
 
+// ## STOP INTERVAL SULL'HOVER
+let interval = false;
+slidesContainerEl.addEventListener("mouseover", function () {
+  stopInterval(myInterval);
+});
+
+// // ## RIPRENDE INTERVAL ALLA RIMOZIONE DELL'HOVER
+slidesContainerEl.addEventListener("mouseleave", function () {
+  myInterval = setInterval(nextImage, 3000);
+});
+
+// ## AL CLICK DELLA PREVIEW ANDARE ALL'IMMAGINE
+
 // ## FUNCTION PER L'IMMAGINE SUCCESSIVA E PRECEDENTE
 
 function nextImage() {
-  // eliminazione classe visibilitá display precedente
+  //  eliminazione classe visibilitá display precedente
   const currentSlide = document.querySelector(".slide.visible");
   currentSlide.classList.remove("visible");
 
@@ -104,4 +117,43 @@ function prevImage() {
 
 // ## FUNCTION SET INTERVAL
 
-setInterval(nextImage, 3000);
+let myInterval = setInterval(nextImage, 3000);
+
+// ## FUNCTION GO TO SLIDE
+
+
+
+ function goToSlide(nSlide) {
+//   //   incremento delle img
+//   const allSlides = document.getElementsByClassName("slide");
+//   const allPreview = document.getElementsByClassName("preview-img");
+
+//   nSlide.addEventListener("click", function () {
+//     for (let i = 0; i < allPreview.length; i++) {
+//       const image = allPreview[i];
+//       let nSlide = image;
+//     }
+//   });
+
+//   // eliminazione classe visibilitá display precedente
+//   const currentSlide = document.querySelector(".slide.visible");
+//   currentSlide.classList.remove("visible");
+
+//   //   eliminazione classe visibilitá preview precedente
+//   const currentPreview = document.querySelector(".preview-img.non-opacity");
+//   currentPreview.classList.remove("non-opacity");
+
+//   //   aggiunta classe alla prossima img
+//   const newImg = allSlides[nSlide];
+//   newImg.classList.add("visible");
+
+//   const newPreview = allPreview[nSlide];
+//   newPreview.classList.add("non-opacity");
+// }
+
+
+
+// ## FUNCTION STOP INTERVAL
+function stopInterval(interval) {
+  clearInterval(interval);
+}
