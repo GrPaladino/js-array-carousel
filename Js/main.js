@@ -121,37 +121,28 @@ let myInterval = setInterval(nextImage, 3000);
 
 // ## FUNCTION GO TO SLIDE
 
-
-
- function goToSlide(nSlide) {
-//   //   incremento delle img
-//   const allSlides = document.getElementsByClassName("slide");
-//   const allPreview = document.getElementsByClassName("preview-img");
-
-//   nSlide.addEventListener("click", function () {
-//     for (let i = 0; i < allPreview.length; i++) {
-//       const image = allPreview[i];
-//       let nSlide = image;
-//     }
-//   });
-
-//   // eliminazione classe visibilitá display precedente
-//   const currentSlide = document.querySelector(".slide.visible");
-//   currentSlide.classList.remove("visible");
-
-//   //   eliminazione classe visibilitá preview precedente
-//   const currentPreview = document.querySelector(".preview-img.non-opacity");
-//   currentPreview.classList.remove("non-opacity");
-
-//   //   aggiunta classe alla prossima img
-//   const newImg = allSlides[nSlide];
-//   newImg.classList.add("visible");
-
-//   const newPreview = allPreview[nSlide];
-//   newPreview.classList.add("non-opacity");
-// }
-
-
+function goToSlide(nSlide) {
+  //   //   incremento delle img
+  //   const allSlides = document.getElementsByClassName("slide");
+  //   const allPreview = document.getElementsByClassName("preview-img");
+  //   nSlide.addEventListener("click", function () {
+  //     for (let i = 0; i < allPreview.length; i++) {
+  //       const image = allPreview[i];
+  //       let nSlide = image;
+  //     }
+  //   });
+  //   // eliminazione classe visibilitá display precedente
+  //   const currentSlide = document.querySelector(".slide.visible");
+  //   currentSlide.classList.remove("visible");
+  //   //   eliminazione classe visibilitá preview precedente
+  //   const currentPreview = document.querySelector(".preview-img.non-opacity");
+  //   currentPreview.classList.remove("non-opacity");
+  //   //   aggiunta classe alla prossima img
+  //   const newImg = allSlides[nSlide];
+  //   newImg.classList.add("visible");
+  //   const newPreview = allPreview[nSlide];
+  //   newPreview.classList.add("non-opacity");
+}
 
 // ## FUNCTION STOP INTERVAL
 function stopInterval(interval) {
