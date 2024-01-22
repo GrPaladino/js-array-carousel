@@ -1,6 +1,18 @@
 // - creo un array con delle immagini da inserire con un ciclo for al caricamento della pagina
 // - imposto l'immagine che sará visibile al caricamento della pagina con una classe specifica
 // - al click sulla freccia UP la classe che da la visibiliá passerá all'immagine successiva.
+//
+// - Milestone 1:
+// - aggiungere funzionalità sul carosello in modo che ogni 3 secondi lo slider scorra all'immagine successiva. Se non è stato già fatto, abilitare slider infinito (quando arrivo alla fine, ricomincio da capo, sia con l'interval che con i pulsanti).
+
+// - Milestone 2:
+// - Aggiungere il ciclo infinito del carosello (se non è stato fatto). Ovvero se è attiva la prima immagine e l'utente clicca la freccia per andare all'immagine precedente, dovrà comparire l'ultima immagine dell'array e viceversa.
+
+// - Bonus 1:
+// - Creare una funzione goToSlide(n)  in grado di gestire il cambio di slide. Utilizzarla sul click delle frecce e nell'interval.
+
+// - Bonus 2:
+// - Lo scorrimento automatico delle immagini si blocca quando l'utente mette il mouse sopra il carosello e riparte quando il mouse esce fuori. (
 
 // # ELEMENTO HTML
 const slidesContainerEl = document.getElementById("slides-container");
@@ -25,7 +37,18 @@ for (let i = 0; i < slides.length; i++) {
 slidesContainerEl.innerHTML = slideHtml;
 
 // # CAMBIO IMMAGINE AL CLICK ARRROW-UP
+arrowDown.addEventListener("click", function () {
+  const nextI = nextImage();
+});
+
+// # CAMBIO IMMAGINE AL CLICK ARRROW-DOWN
 arrowUp.addEventListener("click", function () {
+  const prevI = prevImage();
+});
+
+// ## FUNCTION PER L'IMMAGINE SUCCESSIVA E PRECEDENTE
+
+function nextImage() {
   // eliminazione classe visibilitá display precedente
   const currentSlide = document.querySelector(".slide.visible");
   currentSlide.classList.remove("visible");
@@ -50,10 +73,9 @@ arrowUp.addEventListener("click", function () {
 
   const newPreview = allPreview[currentImg];
   newPreview.classList.add("non-opacity");
-});
+}
 
-// # CAMBIO IMMAGINE AL CLICK ARRROW-DOWN
-arrowDown.addEventListener("click", function () {
+function prevImage() {
   // eliminazione classe visibilitá display precedente
   const currentSlide = document.querySelector(".slide.visible");
   currentSlide.classList.remove("visible");
@@ -78,4 +100,8 @@ arrowDown.addEventListener("click", function () {
 
   const newPreview = allPreview[currentImg];
   newPreview.classList.add("non-opacity");
-});
+}
+
+// ## FUNCTION SET INTERVAL
+
+setInterval(nextImage, 3000);
